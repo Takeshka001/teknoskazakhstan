@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAL Color Chart</title>
+    <style>
+        /* Добавьте стили для всплывающего окна */
+        .tooltip {
+            position: absolute;
+            display: none;
+            background: white;
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <img src="{% static 'path/to/ral-design.jpeg' %}" id="ral-chart" usemap="#ralmap">
+    <div id="tooltip" class="tooltip">
+        <img id="house" src="{% static 'path/to/house.png' %}" alt="house" style="width: 100px;">
+    </div>
+
+    <script>
+        const chart = document.getElementById('ral-chart');
+        const tooltip = document.getElementById('tooltip');
+        const house = document.getElementById('house');
+
+        chart.addEventListener('mousemove', function(event) {
+            const x = event.pageX;
+            const y = event.pageY;
+
+            // Определите цвет под курсором (используйте заранее заданные области)
+            const color = getColorAtPosition(x, y);
+            if (color) {
+                tooltip.style.display = 'block';
+                tooltip.style.left = `${x + 10}px`;
+                tooltip.style.top = `${y + 10}px`;
+                house.style.backgroundColor = color;
+            } else {
+                tooltip.style.display = 'none';
+            }
+        });
+
+        function getColorAtPosition(x, y) {
+            // Логика определения цвета по позиции (например, с использованием карты изображений)
+            // Это нужно реализовать отдельно
+            return '#FF0000';  // Возвращаемый цвет должен быть в формате HEX
+        }
+    </script>
+</body>
+</html>
