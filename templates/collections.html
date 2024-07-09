@@ -1,11 +1,21 @@
 {% extends 'base_generic.html' %}
-{% block title %}Collections{% endblock %}
+
+{% block title %}Color Selection{% endblock %}
+
+{% block meta_description %}Choose from a variety of colors for your products{% endblock %}
+{% block meta_keywords %}color selection, product colors, paint shop{% endblock %}
 
 {% block content %}
-<h1>Collections</h1>
-<ul>
+<div class="container">
+    <h2>Color Palette</h2>
     {% for collection in collections %}
-        <li><a href="{% url 'collection_detail' collection.collection_name %}">{{ collection.collection_name }}</a></li>
-    {% endfor %}
-</ul>
+    <a href="{% url 'collection_detail' collection.url_name %}"><h3>{{ collection.name }}</h3></a>
+        {% endfor %}
+</div>
+
+<script>
+    function goToCollectionDetailsPage(color) {
+        window.location.href = `/collections/${encodeURIComponent(color)}`;
+    }
+</script>
 {% endblock %}

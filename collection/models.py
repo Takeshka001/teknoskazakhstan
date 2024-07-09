@@ -7,7 +7,7 @@ class ColorsRalClassic(models.Model):
     name = models.CharField(max_length=100)
     cmyk_coated = models.CharField(max_length=50, blank=True, null=True)
     cmyk_uncoated = models.CharField(max_length=50, blank=True, null=True)
-    html_hex = models.CharField(max_length=7, blank=True, null=True)  # Assuming hex code like "#FFFFFF"
+    hex_code = models.CharField(max_length=7, blank=True, null=True)  # Assuming hex code like "#FFFFFF"
     rgb = models.CharField(max_length=20, blank=True, null=True)
 
     def __str__(self):
@@ -68,3 +68,4 @@ class ColorsRalEffect(models.Model):
 
     def __str__(self):
         return self.name
+

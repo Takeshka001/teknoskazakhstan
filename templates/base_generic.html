@@ -8,6 +8,7 @@
     <meta name="description" content="{% block meta_description %}Best industrial paints for all your needs.{% endblock %}">
     <meta name="keywords" content="{% block meta_keywords %}industrial paints, high-quality paints, paint shop{% endblock %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
     <header>
@@ -18,55 +19,29 @@
         </div>
         <nav class="menu">
             <ul class="menu_list">
-                <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="{% url 'promotions' %}">Promotions</a></li>
-                <li><a href="{% url 'collections' %}">Collections</a></li>
-                <li><a href="{% url 'catalog' %}">Catalog</a></li>
-                <li><a href="{% url 'about' %}">About Us</a></li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="{% url 'collections' %}">Коллекции цветов</a></li>
+                <li><a href="{% url 'product_list' %}">Каталог</a></li>
             </ul>
         </nav>
         <div class="icon">
-            <ul class="icon_list">
-                <li><a href="{% url 'favorites' %}"><img src="{% static 'img/favorites.png' %}" alt="Favorites" class="icon_img"></a></li>
-                <li><a href="{% url 'account' %}"><img src="{% static 'img/account.png' %}" alt="Account" class="icon_img"></a></li>
-                <li><a href="{% url 'cart' %}"><img src="{% static 'img/cart.png' %}" alt="Cart" class="icon_img"></a></li>
-            </ul>
+            <!-- Добавьте иконки или ссылки, если нужно -->
         </div>
     </header>
     
-    <main>
+    <main class="container">
         {% block content %}
         {% endblock %}
     </main>
     
     <footer>
         <div class="container">
-            <nav class="footer_menu">
-                <ul class="footer_list">
-                    <li class="footer_menu_title">For Customers</li>
-                    <li class="footer_menu_item"><a href="#">Promo Codes & Coupons</a></li>
-                    <li class="footer_menu_item"><a href="#">My Account</a></li>
-                    <li class="footer_menu_item"><a href="#">Place Order</a></li>
-                </ul>
-                <ul class="footer_list">
-                    <li class="footer_menu_title">About Us</li>
-                    <li class="footer_menu_item"><a href="#">Company Info</a></li>
-                </ul>
-                <ul class="footer_list">
-                    <li class="footer_menu_title">Information</li>
-                    <li class="footer_menu_item"><a href="#">Delivery</a></li>
-                    <li class="footer_menu_item"><a href="#">Returns</a></li>
-                    <li class="footer_menu_item"><a href="#">Privacy Policy</a></li>
-                    <li class="footer_menu_item"><a href="#">Terms of Service</a></li>
-                </ul>
-                <ul class="footer_list">
-                    <li class="footer_menu_title">Contact</li>
-                    <li class="footer_menu_item"><a href="#">+1 (800) 123-4567</a></li>
-                    <li class="footer_menu_item"><a href="#">Email: info@paintshop.com</a></li>
-                    <li class="footer_menu_item"><a href="#">123 Paint St, Paint City</a></li>
-                </ul>
-            </nav>
+            <ul class="footer_list">
+                <li class="footer_menu_title">Контакты</li>
+                <li class="footer_menu_item"><a href="#">+7 (747) 244 4409</a></li>
+                <li class="footer_menu_item"><a href="#">Email: sunlight-888@bk.ru</a></li>
+                <li class="footer_menu_item"><a href="#">г. Алматы, проспект Райымбека 455</a></li>
+            </ul>
             <nav class="footer_copy">
                 <p>&copy; by Takeshka</p>
             </nav>
@@ -75,5 +50,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="{% static 'js/main.js' %}" type="module" defer></script>
+    {% block extra_js %}{% endblock %}
 </body>
 </html>

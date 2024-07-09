@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Каталог товаров</h1>
+
+<div class="categories">
+    <ul>
+        {% for category in categories %}
+            <li>
+                <a href="{% url 'product_list_by_category' category.slug %}">{{ category.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="product-list">
+    {% for product in products %}
+        <div class="product-item">
+            <a href="{% url 'product_detail' product.pk %}">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                <h2>{{ product.name }}</h2>
+                <p>Цена: {{ product.price }} тенге.</p>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

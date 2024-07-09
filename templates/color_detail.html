@@ -1,0 +1,48 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block title %}Change Product Image Color{% endblock %}
+
+{% block meta_description %}Change the product image color with JavaScript{% endblock %}
+{% block meta_keywords %}product image, change color, JavaScript{% endblock %}
+
+{% block content %}
+<div class="product-detail">
+    <div class="product main-image">
+        <img src="{% static 'img/1pic.png' %}" class="img-1" id="main-img-1" />
+        <img src="{% static 'img/1pic.png' %}" class="img-2" id="main-img-2" />
+        <div class="color" id="main-color" style="background-color: {{ color.hex_code }};"></div>
+    </div>
+    <div class="thumbnails">
+        <div class="color-block" style="background-color: {{ color.hex_code }};" onclick="goToCollectionDetailsPage('{{ color.hex_code }}')">
+            <span>{{ color.name }}</span>
+            <span>{{ color.ral_code }}</span>
+        </div>
+        <div class="product thumbnail" data-src-1="{% static 'img/1pic.png' %}" data-src-2="{% static 'img/1pic.png' %}">
+            <img src="{% static 'img/1pic.png' %}" class="img-1 thumb" />
+            <img src="{% static 'img/1pic.png' %}" class="img-2" />
+            <div class="color" style="background-color: {{ color.hex_code }};"></div>
+        </div>
+        <div class="product thumbnail" data-src-1="{% static 'img/2pic.png' %}" data-src-2="{% static 'img/2pic.png' %}">
+            <img src="{% static 'img/2pic.png' %}" class="img-1 thumb" />
+            <img src="{% static 'img/2pic.png' %}" class="img-2" />
+            <div class="color" style="background-color: {{ color.hex_code }};"></div>
+        </div>
+        <div class="product thumbnail" data-src-1="{% static 'img/3pic.png' %}" data-src-2="{% static 'img/3pic.png' %}">
+            <img src="{% static 'img/3pic.png' %}" class="img-1 thumb" />
+            <img src="{% static 'img/3pic.png' %}" class="img-2" />
+            <div class="color" style="background-color: {{ color.hex_code }};"></div>
+        </div>
+        <div class="product thumbnail" data-src-1="{% static 'img/4pic.png' %}" data-src-2="{% static 'img/4pic.png' %}">
+            <img src="{% static 'img/4pic.png' %}" class="img-1 thumb" />
+            <img src="{% static 'img/4pic.png' %}" class="img-2" />
+            <div class="color" style="background-color: {{ color.hex_code }};"></div>
+        </div>
+        <div class="product thumbnail" data-src-1="{% static 'img/5pic.png' %}" data-src-2="{% static 'img/5pic.png' %}">
+            <img src="{% static 'img/5pic.png' %}" class="img-1 thumb" />
+            <img src="{% static 'img/5pic.png' %}" class="img-2" />
+            <div class="color" style="background-color: {{ color.hex_code }};"></div>
+        </div>
+    </div>
+</div>
+<script defer src="{% static 'js/script.js' %}"></script>
+{% endblock %}

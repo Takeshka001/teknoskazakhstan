@@ -1,0 +1,29 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block title %}Color Selection{% endblock %}
+
+{% block meta_description %}Choose from a variety of colors for your products{% endblock %}
+{% block meta_keywords %}color selection, product colors, paint shop{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Color Palette</h2>
+    <div class="color-grid">
+        {% for color in items %}
+        <a href="{% url 'detail_color' color.id  url_name %}">
+            <div class="color-block" style="background-color: {{ color.hex_code }};" onclick="goToCollectionDetailsPage('{{ color.hex_code }}')">
+                <span>{{ color.name }}</span>
+                <span>{{ color.ral_code }}</span>
+            </div>
+        </a>
+        
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    function goToCollectionDetailsPage(color) {
+        window.location.href = `/collections/${encodeURIComponent(color)}`;
+    }
+</script>
+{% endblock %}
